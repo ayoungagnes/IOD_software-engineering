@@ -1,0 +1,22 @@
+{
+  "name": "module1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "LabExercise3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayoungagnes/Module1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayoungagnes/Module1/issues"
+  },
+  "homepage": "https://github.com/ayoungagnes/Module1#readme",
+  "dependencies": {
+    "sentiment": "^5.0.2"
+  }
+}
