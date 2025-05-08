@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a> 
+      <a href="form.html">Form</a>
+    </nav>
+  </header>
+  <main>
+  </main>
+  <form method="POST" action="http://localhost:3000/profile">
+    <div>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname" value="Ayoung">
+    </div>
+    <div>  
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname" value="Kim">
+    </div>
+
+    <div>
+    <input type="radio" id="html" name="favlang" value="HTML">
+    <label for="html">HTML</label>
+    <input type="radio" id="css" name="favlang" value="CSS">
+    <label for="css">CSS</label>
+    <input type="radio" id="javascript" name="favlang" value="JavaScript">
+    <label for="javascript">JavaScript</label>
+    </div>
+
+    <div>
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Truck">
+    <label for="vehicle1">I own a truck</label>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Bicycle">
+    <label for="vehicle2">I own a bicycle</label>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Car">
+    <label for="vehicle3">I own a car</label>
+    </div>
+
+    <lable for="carbrand">Choose the brand of car you own</lable>
+    <select name="carbrand" id="carbrand">
+      <option value="holden">Holden</option>
+      <option value="hyundai">Hyundai</option>
+      <option value="toyota">Toyota</option>
+      <option value="volkswagen">Volkswagen</option>
+      <option value="vinfast">VinFast</option>
+    </select>
+    <button type="submit">Submit form</button>
+  </form>
+  
+  
+  <footer>Copyright &copy; 2024</footer>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>metadata</title>
+  <meta charset="UTF-8">
+  <meta name = "description" content = "index.html">
+  <meta name = "keywords" content = "HTML">
+  <meta name = "author" content = "Ayoung">
+  <meta name = "viewpoint" content = "width=device-width, initial-scale=1.0">
+  <style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
+</head>
+
+<body>
+  <h1>My HTML learning journey</h1>
+  <article>
+  <h2>Learing elements - div, span, p, pre, ul, li, ol, article</h2>
+  <div>HTML</div> <div>CSS</div> <div>JavaScript</div>
+  <span>span1</span> <span>span2</span> <span>span3</span>
+  <p>
+    p represents paragraph     without preserving      spacing
+  </p>
+  <pre>
+    Text in         a pre element
+    is displayed in a fixed-width
+    font, and it preserves
+    both      spaces and
+    line breaks
+  </pre>
+    <ul>
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Cherry</li>
+      <li>Dragon fruit</li>
+    </ul>
+    <ol>
+      <li>celery</li>
+      <li>carrot</li>
+      <li>tomato
+        <ul>
+          <li>avocado</li>
+          <li>orange</li>
+        </ul>
+      </li>
+    </ol>
+  </article>
+  
+  <article> 
+    <h2>Tables - table, thead, tbody, tr, td, th</h2>
+      <table>
+        <thead>
+        <tr>
+            <th colspan="2">First header</th>
+            <th>Second header</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>First cell - first row</td>
+                <td>Second cell - first row</td>
+                <td>Third cell</td>
+            </tr>
+            <tr>
+              <td>First cell -  second row</td>
+              <td rowspan="2">Second cell - second row</td>
+              <td>Third cell</td>
+          </tr>
+            <tr>
+              <td>First cell - third row</td>
+              <td>Second cell - third row</td>
+            </tr>
+        </tbody>
+    </table> 
+  </article>
+  
+  <article> <!--1.	Start by adding another article below the second one, with a unique h2 tag inside this newly created article.-->
+    <h2>HTML elements - img, video, audio</h2>
+    <img src="https://picsum.photos/400/400" alt="a photo from picsum" width="300" height="300"/>  
+    <img src="./assets/html_lab_image.jpg" alt="sky" width="300" height="300"/>
+
+    <video width="250" autoplay>  <!--video-->
+      <source src="./assets/flower.webm" type="video/webm">
+      Sorry, your browser doesn't support embedded videos.
+   </video>
+
+  
+   
+ <figure>
+ <audio controls autoplay>
+  <source src="./assets/t-rex-roar.mp3" type="audio/mp3">
+  Your browser does not support the <code>audio</code> element.
+</audio>
+<figcaption>t-rex's roar sound</figcaption>
+</figure> 
+ </article>
+  <header>
+    <nav>
+      <!-- works like <a href="/index.html">Home</a> -->
+      <a href="index.html">Home</a>
+      <a href="form.html">Form</a>
+    </nav>
+  </header>
+
+  <main>  
+  </main>
+
+  <footer>Copyright &copy; 2024</footer>
+</body>
+
+</html>
