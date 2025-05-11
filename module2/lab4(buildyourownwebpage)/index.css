@@ -1,0 +1,110 @@
+
+body {
+    font-family: 'Cal Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: xx-large;
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: x-large;
+    color: gray;
+    margin-top: 0;
+}
+
+.cv-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(230, 218, 204);
+    border-bottom: 2px solid;
+    padding: 1rem;
+}
+
+.title {
+    flex: 1 1 60%;
+    min-width: 250px;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cv-detail {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.cv-column-left,
+.cv-column-right {
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.cv-column-left {
+    flex: 1 1 30%;
+    min-width: 250px;
+}
+
+.cv-column-right {
+    flex: 1 1 60%;
+    min-width: 300px;
+}
+
+
+section {
+    margin-bottom: 2rem;
+}
+
+.cv-contact,
+.cv-education,
+.cv-languages,
+.cv-profile,
+.cv-experience,
+.cv-skills {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+
+a:hover {
+    background-color: yellow;
+    color: red;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .cv-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .photo {
+        width: 100px;
+        height: 100px;
+        margin-top: 1rem;
+    }
+
+    .cv-column-left,
+    .cv-column-right {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: small;
+    color: gray;
+}
