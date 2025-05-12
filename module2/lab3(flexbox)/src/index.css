@@ -63,7 +63,7 @@ a {
 /*3centering with flexbox*/
 .flex-center{
     justify-content: flex-start;
-    justify-content:baseline; /*this one not work*/
+    justify-content:baseline; 
     justify-content: flex-end;
     justify-content: center;
     align-items: flex-end;
@@ -74,8 +74,8 @@ a {
 .flex-space-between{
     justify-content: flex-end;
     justify-content: center;
-    justify-content: space-around; 
-    justify-content: space-evenly; 
+    justify-content: space-between;
+   
 } 
 /*5.wrapping*/
 .flex-wrap{
@@ -109,18 +109,6 @@ a {
     text-align: center;
     flex-grow: 1;
 }
-.first-item{
-    order:1;
-}
-.second-item{
-    order: 2;
-}
-.third-item{
-    order: 3;
-}
-.fourth-item{
-    order:5;
-}
 .fifth-item{
     order: 4;
-}
+} 
