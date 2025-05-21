@@ -147,9 +147,12 @@ const sydney = {
     timezone: 'Australia/Sydney' 
 }
 
-for (let key in sydney) {
-    console.log('key: '+ key);
-    console.log('value '+ sydney[key]);
+function printCityInfo(city){
+    for (let key in city) 
+    {
+        console.log('key: '+ key);
+        console.log('value '+ city[key]);
+    }
 }
 
 const launceston = {
@@ -159,11 +162,8 @@ const launceston = {
     founded : '30 October 1853',
     timezone : 'Australian Eastern Standard Time'
 }
-
-for (key in launceston) {
-    console.log('key: '+key);
-    console.log('value: '+launceston[key]);
-}
+printCityInfo(sydney);
+printCityInfo(launceston);
 
 
 console.log("---line break---Answer to Question 9:");
@@ -214,9 +214,16 @@ class PersonClass {
         this.human = true;
     }
     canDrive() {
-        return this.age >= 17;
+        if (this.age > 18){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 
 let person3 = new PersonClass('Sarah','40');
 console.log(person3);
+console.log(person3.canDrive());
