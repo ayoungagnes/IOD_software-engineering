@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxon Lab</title>
+</head>
+<body>
+
+  <h2>1. Days between birthday and today</h2>
+  <div id="difference"></div>
+
+  <h2>2. Years, months, and days since birthday</h2>
+  <div id="duration"></div>
+
+  <h2>3. Closest date to today</h2>
+  <div id="closest-date"></div>
+
+  <h2>4. Compare two dates</h2>
+  <div id="comparison"></div>
+
+  <h2>5. Current time in London</h2>
+  <div id="london-time"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.6.1/build/global/luxon.min.js"></script>
+  <script>
+    const { DateTime } = luxon;
+
+    // 1) Days between birthday and now
+    const now = DateTime.now();
+    const birthday = DateTime.fromISO("1993-07-28");
+    const daysDiff = Math.floor(now.diff(birthday, "days").days);
+    document.getElementById("difference").innerText = `${daysDiff} days`;
+
+    // 2) Years, months, and days
+    const ymd = now.diff(birthday, ["years", "months", "days"]).toObject();
+    const durationStr = `${Math.floor(ymd.years || 0)} years, ${Math.floor(ymd.months || 0)} months, and ${Math.floor(ymd.days || 0)} days`;
+    document.getElementById("duration").innerText = durationStr;
+
+    // 3) Closest date to today
+    const date1 = DateTime.fromISO("2023-12-01");
+    const date2 = DateTime.fromISO("2024-07-01");
+
+    const diff1 = now.diff(date1).milliseconds;
+    const diff2 = now.diff(date2).milliseconds;
+
+    const closest = Math.abs(diff1) < Math.abs(diff2) ? date1 : date2;
+    document.getElementById("closest-date").innerText = `Closest to today: ${closest.toISODate()}`;
+
+    // 4) Compare two dates
+    let comparisonText;
+    if (date1 < date2) {
+      comparisonText = `${date1.toISODate()} is before ${date2.toISODate()}`;
+    } else if (date1 > date2) {
+      comparisonText = `${date1.toISODate()} is after ${date2.toISODate()}`;
+    } else {
+      comparisonText = `Both dates are the same: ${date1.toISODate()}`;
+    }
+    document.getElementById("comparison").innerText = comparisonText;
+
+    // 5) Current time in London
+    const londonTime = DateTime.now().setZone("Europe/London");
+    document.getElementById("london-time").innerText = londonTime.toLocaleString(DateTime.DATETIME_FULL);
+  </script>
+
+</body>
+</html>

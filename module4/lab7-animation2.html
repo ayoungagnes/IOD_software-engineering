@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Animation Example 2</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f8f9fa;
+    }
+
+    .rotator {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      border-radius: 15px;
+      animation: spinAndColor 3s infinite ease-in-out;
+      transform-origin: bottom left;
+    }
+
+    @keyframes spinAndColor {
+      0% {
+        transform: rotate(0deg);
+        background-color: orange;
+      }
+      50% {
+        transform: rotate(90deg);
+        background-color: mediumorchid;
+      }
+      100% {
+        transform: rotate(0deg);
+        background-color: blue;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="rotator"></div>
+</body>
+</html>

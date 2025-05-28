@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eCharts - Fake Store API</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+</head>
+<body>
+
+  <div id="main" style="width: 900px;height:600px;"></div>
+
+  <script type="text/javascript">
+    // Initialize the echarts instance
+    let myChart = echarts.init(document.getElementById('main'));
+
+    // Base config
+    let options = {
+      title: { text: 'Fake Store Categories' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: [] // <-- Filled later
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [{
+        name: '# Products',
+        type: 'bar',
+        data: [] // <-- Filled later
+      }]
+    };
+
+    fetch('https://fakestoreapi.com/products')
+      .then(response => response.json())
+      .then(products => {
+        // Use map to extract all categories
+        const allCategories = products.map(product => product.category);
+
+        // Use Set to get unique categories
+        const uniqueCategories = [...new Set(allCategories)];
+
+        // Use reduce to count how many products per category
+        const categoryCounts = uniqueCategories.map(cat => {
+          return products.reduce((count, product) => {
+            return product.category === cat ? count + 1 : count;
+          }, 0);
+        });
+
+        // Set xAxis and series data
+        options.xAxis.data = uniqueCategories;
+        options.series[0].data = categoryCounts;
+
+        // Display the chart
+        myChart.setOption(options);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab #5: Manage Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1>Latest News</h1>
+  <div id="news-container"></div>
+  <input type="text" id="newsTitle"><br>
+  <input type="text" id="newsContent"><br>
+  <button id="submit" onclick=addNews()>submit</button>
+  <script>
+    let news = [
+      { id: 1, title: 'Election Results', content: 'Newly elected minister...' },
+      { id: 2, title: 'Sporting Success', content: 'World Cup winners...' },
+      { id: 3, title: 'Tornado Warning', content: 'Residents should prepare...' }
+    ];
+
+    const container = document.getElementById('news-container');
+
+    function renderNews() {
+      container.innerHTML = '';
+
+      news.forEach(item => {
+        const newsItem = document.createElement('div');
+        newsItem.className = 'news-item';
+
+        const title = document.createElement('div');
+        title.className = 'news-title';
+        title.textContent = item.title;
+
+        const content = document.createElement('div');
+        content.className = 'news-content';
+        content.textContent = item.content;
+
+        newsItem.appendChild(title);
+        newsItem.appendChild(content);
+        container.appendChild(newsItem);
+      });
+    }
+
+    renderNews();
+
+    setInterval(() => {
+      console.log("Re-render");
+      renderNews();
+    }, 5000);
+
+    function addNews() {
+      let newsHeader = document.getElementById("newsTitle").value;
+      let newsContent = document.getElementById("newsContent").value;
+      news.push({id : news.length+2, title: newsHeader, content: newsContent});
+      renderNews();
+    }
+  </script>
+
+</body>
+</html>

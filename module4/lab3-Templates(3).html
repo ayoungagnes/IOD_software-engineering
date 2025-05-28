@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e3f2fd;
+        }
+            .card {
+            padding: 10px;
+        }
+            .card-title {
+            font-weight: 600;
+            font-size: 3em;
+            padding: 0 0 10px 0;
+        }
+            .card-description {
+            font-weight: 400;
+            font-size: 2em
+        }
+        .card-image{
+            width:40%;
+        }
+    </style>
+</head>
+    <body>
+        <template id="card-template">
+            <div class="card">
+              <div class="card-body">
+                <img class="card-image">
+                <div class="card-title"></div>
+                <div class="card-text"></div>
+              </div>
+            </div>
+        </template>
+
+        <div id="card-list"></div>
+        <div id="content"></div>
+    <script>
+        const data = [{name: 'bob', age: 23}, 
+                    {name: 'alice', age: 39}]
+
+        const artist = {
+            name: "Van Gogh",
+            portfolio:[
+                {title: "portrait", url:
+                "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"},
+                {title: "sky", url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg"},
+            ]
+        }
+
+       
+
+        const contentDiv = document.getElementById('content');
+
+        const heading = document.createElement('h2');
+        heading.textContent = artist.name;
+        
+        function addCard(title, text) {
+            console.log("artist name",title);
+            console.log("portfolio", text);
+          
+            
+            const template =
+                document.getElementById("card-template")
+                        .content.cloneNode(true);
+        template.querySelector('.card-title').innerText =
+            title;
+        template.querySelector('.card-text').innerText =
+            text.title;
+        template.querySelector('.card-image').src = text.url
+
+        document.querySelector('#card-list')
+                .appendChild(template);
+    }
+        // data.forEach(person => {addCard(person.name,`Age: ${person.age}`);
+
+        // });
+        artist.portfolio.forEach(art => addCard(artist.name, art))
+        
+
+    // addCard('This is cardTitle1','This is cardText1');
+    // addCard('This is cardTitle2','This is cardText2');
+    // addCard(artist.name,artist.portfolio)
+</script>
+    </body>
+</html>
