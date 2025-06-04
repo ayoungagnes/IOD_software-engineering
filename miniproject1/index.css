@@ -1,0 +1,93 @@
+body {
+  font-family: "Edu SA Hand", "Caveat", cursive;
+  background-color: white; /*rgb(243, 238, 233) original,  #dceaf7*/
+}
+h1 {
+  text-align: center;
+  font-size: 250%;
+  color: #52a5f2;
+}
+h2 {
+  text-align: center;
+  color: white;
+  background-color: #b6d8f7;
+}
+.topics {
+  width: 70%;
+  border-radius: 12px;
+}
+p {
+  text-align: center;
+  color: #30a0e0;
+}
+label {
+  color: #9cc8f2;
+}
+input {
+  text-align: center;
+}
+#nameBox {
+  margin: auto;
+  text-align: center;
+}
+#chooseTopics {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+#chooseTopics > div {
+  text-align: center;
+}
+
+.ripple-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 60%;
+}
+
+.ripple-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(
+    109,
+    224,
+    244,
+    0.461
+  ); /*original : rgba(255, 255, 255, 0.3);rgba(109, 224, 244, 0.461)*/
+  border-radius: 70%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+}
+.ripple-wrapper:hover {
+  transform: translateY(-2px) scale(1.02);
+  transition: transform 0.3s ease;
+}
+.ripple-wrapper:hover::after {
+  animation: waterRipple 0.8s ease-out forwards;
+}
+
+@keyframes waterRipple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  50% {
+    width: 100px;
+    height: 100px;
+    opacity: 0.3;
+  }
+  100% {
+    width: 180px;
+    height: 180px;
+    opacity: 0;
+  }
+}

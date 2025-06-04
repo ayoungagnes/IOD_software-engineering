@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saved Quote</title>
+    <style>
+      body {
+        font-family: "Edu SA Hand", "Caveat", cursive;
+      }
+      h1 {
+        color: #52a5f2;
+        text-align: center;
+        margin-top: 2%;
+      }
+      #savedList {
+        color: #52a5f2;
+        text-align: center;
+      }
+      button {
+        font-family: "Edu SA Hand", "Caveat", cursive;
+      }
+      .homeBtn {
+        text-align: center;
+        margin-top: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📖Saved Quotes📖</h1>
+    <div id="savedList"></div>
+
+    <div class="homeBtn">
+      <button class="pressButton" onclick="goHome()">
+        🏠Go back to homepage
+      </button>
+    </div>
+    <script>
+      const list = document.getElementById("savedList");
+      const quotes = JSON.parse(localStorage.getItem("cheerQuotes")) || [];
+
+      quotes.forEach((q) => {
+        const p = document.createElement("p");
+        p.textContent = q;
+        list.appendChild(p);
+      });
+      function goHome() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

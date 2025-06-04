@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayoung's mini project1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Caveat&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Edu+SA+Hand:wght@400..700&family=Libre+Baskerville&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>CheerDrop</h1>
+
+    <p><em>Your daily dose of cheer : personalised just for you🍀</em></p>
+
+    <div id="nameBox">
+      <label for="name">Your name: </label>
+      <input type="text" id="username" name="name" /><br />
+    </div>
+
+    <h2>What could use a drop of cheer today?</h2>
+    <section id="chooseTopics">
+      <div class="ripple-wrapper">
+        <a href="result.html" onclick="getResult(event, 'study')">
+          <img class="topics" src="./asset/study.png" />
+        </a>
+      </div>
+      <div class="ripple-wrapper">
+        <a href="result.html" onclick="getResult(event, 'work')">
+          <img class="topics" src="./asset/work.png" />
+        </a>
+      </div>
+      <div class="ripple-wrapper">
+        <a href="result.html" onclick="getResult(event, 'health')">
+          <img class="topics" src="./asset/Health.png" />
+        </a>
+      </div>
+      <div class="ripple-wrapper">
+        <a href="result.html" onclick="getResult(event, 'relationship')">
+          <img class="topics" src="./asset/relationship.png" />
+        </a>
+      </div>
+    </section>
+
+    <script>
+      function getResult(event, topic) {
+        event.preventDefault(); // Prevent <a> from navigating immediately
+
+        const name = document.getElementById("username").value;
+        if (!name) {
+          alert("Please enter your name first :)");
+          return;
+        }
+
+        const url = `result.html?name=${encodeURIComponent(
+          name
+        )}&topic=${topic}`;
+        window.location.href = url;
+      }
+    </script>
+  </body>
+</html>
