@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Greeting from './components/Greeting'
 import BigCats from './components/BigCats'
+import Emoji from './components/emoji'
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
      </div>
      </Greeting>
      <BigCats></BigCats>
+     <Emoji></Emoji>
     </>
   )
 }
