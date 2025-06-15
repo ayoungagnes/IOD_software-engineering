@@ -1,13 +1,15 @@
 import SingleCat from "./SingleCat";
-function BigCats() {
-  const cats = [
+import { useState } from "react";
+import AddCatForm from "./AddCatForm";
+
+const cats = [
     {
       id: 1,
       name: "Cheetah",
       latinName: "Acinonyx jubatus",
       imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/500px-Male_cheetah_facing_left_in_South_Africa.jpg",
-    },
+     },
     {
       id: 2,
       name: "Cougar",
@@ -51,17 +53,65 @@ function BigCats() {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Walking_tiger_female.jpg/500px-Walking_tiger_female.jpg",
     },
   ];
-  const BigCatsList = cats.map((cat) => (
-    <SingleCat
-      key={cat.id}
+
+function BigCats() {
+  
+  const [currentCats, setCurrentCats] = useState(cats);
+ console.log(currentCats);
+  const handleDeleteCat = (id) => {
+    const updatedCats = currentCats.filter(cat => cat.id !== id);
+    setCurrentCats(updatedCats);
+  };
+  
+  const BigCatsList = currentCats.map((cat) => (
+    <>
+    <SingleCat key={cat.id}
       name={cat.name}
       latinName={cat.latinName}
       imageUrl={cat.imageUrl}
     ></SingleCat>
+    <button onClick={() => handleDeleteCat(cat.id)}>Delete</button>
+    </>
   ));
+
+  const handleSortAlphabeticalCats = () => {
+    let newCats = [...currentCats];
+    newCats.sort((a, b)=> a.name < b.name ? -1 : 1);
+    setCurrentCats(newCats);
+  };
+  
+  const handleReverseCats = () => {
+    let newCats = [...currentCats];
+    newCats.reverse();
+    setCurrentCats(newCats);
+  }
+
+  const handleFilterPantheras = () => {
+    let newCats = [...currentCats]
+    let pantheraCats = newCats.filter(cat => cat.latinName.startsWith('Panthera'));
+    setCurrentCats(pantheraCats);
+
+  }
+
+  const handleResetList = () => {
+    setCurrentCats(cats);
+  }
+  
+  const handleAddCat = (newCat) => {
+    newCat.id = currentCats.length + 1;
+    setCurrentCats([...currentCats, newCat])
+  }
+
+  
+ 
   return (
     <div className="BigCats">
       <ol>{BigCatsList}</ol>
+      <button onClick={handleSortAlphabeticalCats}>Sort alphabetically</button>
+      <button onClick={handleReverseCats}>Reverse</button>
+      <button onClick={handleFilterPantheras}>Filter 'Panthera' family</button>
+      <button onClick={handleResetList}>Reset</button>
+      <AddCatForm onAddCat={handleAddCat}/>
     </div>
   );
 }
