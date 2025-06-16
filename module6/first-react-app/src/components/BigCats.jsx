@@ -64,14 +64,16 @@ function BigCats() {
   };
   
   const BigCatsList = currentCats.map((cat) => (
-    <>
+    
+    <div key={cat.id}>
     <SingleCat key={cat.id}
       name={cat.name}
       latinName={cat.latinName}
       imageUrl={cat.imageUrl}
     ></SingleCat>
     <button onClick={() => handleDeleteCat(cat.id)}>Delete</button>
-    </>
+    </div>
+ 
   ));
 
   const handleSortAlphabeticalCats = () => {
