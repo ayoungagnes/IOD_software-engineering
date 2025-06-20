@@ -1,10 +1,9 @@
-import { useUserContext } from "../context/UserContext";
 import Emoji from "./emoji";
 import { useState } from "react";
 import { useFormInput } from "../hooks/useFormInput";
 import { UserContext } from "../UserProvider";
 import { useContext } from "react";
-
+import { TextField, Button } from "@mui/material";
 function LoginForm() {
   const [status, setStatus] = useState("");
   const [firstNameInputProps, resetFirstName] = useFormInput("Ayoung");
@@ -20,17 +19,23 @@ function LoginForm() {
   };
   return (
     <div className="SubscribeForm componentBox">
-      <label>
-        First Name : {/* form input with similar props*/}
-        <input {...firstNameInputProps} />
-      </label>
-      <label>
-        Email: {/* form input with similar props*/}
-        <input {...emailInputProps} />
-      </label>
-      <button onClick={handleSubscribe}>Subscribe</button>
+            <TextField
+        label="First Name"
+        variant="outlined"
+        fullWidth
+        margin="normal"
+        {...firstNameInputProps}
+      />
+        <TextField
+        label="Email"
+        variant="outlined"
+        fullWidth
+        margin="normal"
+        {...emailInputProps}
+      />
+      <Button variant="outlined" onClick={handleSubscribe}>Subscribe</Button>
       {currentUser.username ? (
-        <button onClick={() => handleUpdateUser({})}>LogOut</button>
+        <Button variant="outlined" onClick={() => handleUpdateUser({})}>LogOut</Button>
       ) : null}
 
       <div>{status}</div>
