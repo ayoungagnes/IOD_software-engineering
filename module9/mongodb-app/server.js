@@ -12,6 +12,8 @@ app.use('/api/posts', postRoutes);
 let commentRoutes = require('./Routes/commentRoutes');
 app.use('/api/comments', commentRoutes);
 
+let coffeeRoutes = require('./Routes/coffeeRoutes'); 
+app.use('/api/coffee', coffeeRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to my MongoDB application." });
